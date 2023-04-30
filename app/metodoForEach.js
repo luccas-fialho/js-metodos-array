@@ -1,11 +1,13 @@
 const sectionLivros = document.querySelector('#livros')
+const elementoComValorTotalDeLivrosDisponiveis = document.querySelector('#valor_total_livros_disponiveis')
 
 function criaLivros(livros) {
+    elementoComValorTotalDeLivrosDisponiveis.innerHTML = ''
     sectionLivros.innerHTML = ''
     livros.forEach(livro => {
         //let disponivel = verificaDisponivel(livro)
         let disponivel = livro.quantidade > 0 ? 'livro__imagens': 'livro__imagens indisponivel'
-        
+
         sectionLivros.innerHTML += `
         <div class="livro">
             <img class="${disponivel}" src="${livro.imagem}" alt="${livro.alt}" />
