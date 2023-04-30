@@ -1,6 +1,7 @@
 const sectionLivros = document.querySelector('#livros')
 
 function criaLivros(livros) {
+    sectionLivros.innerHTML = ''
     livros.forEach(livro => {
         sectionLivros.innerHTML += `
         <div class="livro">
