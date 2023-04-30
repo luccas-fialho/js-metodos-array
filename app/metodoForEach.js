@@ -3,9 +3,12 @@ const sectionLivros = document.querySelector('#livros')
 function criaLivros(livros) {
     sectionLivros.innerHTML = ''
     livros.forEach(livro => {
+        //let disponivel = verificaDisponivel(livro)
+        let disponivel = livro.quantidade > 0 ? 'livro__imagens': 'livro__imagens indisponivel'
+        
         sectionLivros.innerHTML += `
         <div class="livro">
-            <img class="livro__imagens" src="${livro.imagem}" alt="${livro.alt}" />
+            <img class="${disponivel}" src="${livro.imagem}" alt="${livro.alt}" />
             <h2 class="livro__titulo">
                 ${livro.titulo}
             </h2>
@@ -18,5 +21,12 @@ function criaLivros(livros) {
         `
     });
 }
+
+/* function verificaDisponivel(livro){
+    if(livro.quantidade > 0){
+        return 'livro__imagens'
+    }
+    return 'livro__imagens indisponivel'
+} */
 
 buscarLivros()
